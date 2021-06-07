@@ -27,60 +27,73 @@ links = [
 
 
 
-@pytest.mark.parametrize("product", links)
-def test_guest_can_add_product_to_basket(browser, product):
-    #link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-    link = product
+##@pytest.mark.parametrize("product", links)
+##def test_guest_can_add_product_to_basket(browser, product):
+##    #link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+##    link = product
+##    page = ProductPage(browser, link)
+##    page.open()
+##    page.add_to_basket()
+##
+##
+##@pytest.mark.parametrize("product", links)
+##def test_should_be_message_product_is_added_to_basket(browser, product):
+##    #link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+##    link = product
+##    page = ProductPage(browser, link)
+##    page.open()
+##    page.add_to_basket()
+##    page.check_product_name_in_message()
+##
+##
+##@pytest.mark.parametrize("product", links)
+##def test_should_be_message_with_basket_price(browser, product):
+##    #link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+##    link = product
+##    page = ProductPage(browser, link)
+##    page.open()
+##    page.add_to_basket()
+##    page.check_total_price_in_message()
+##
+##
+### 4.3.6
+##@pytest.mark.parametrize("product", links)
+##def test_guest_cant_see_success_message_after_adding_product_to_basket(browser, product):
+##    link = product
+##    page = ProductPage(browser, link)
+##    page.open()
+##    page.add_to_basket()
+##    page.is_not_present_success_message()
+##
+##
+##@pytest.mark.parametrize("product", links)
+##def test_guest_cant_see_success_message(browser, product):
+##    link = product
+##    page = ProductPage(browser, link)
+##    page.open()
+##    page.is_not_present_success_message()
+##
+##
+##@pytest.mark.parametrize("product", links)
+##def test_message_disappeared_after_adding_product_to_basket(browser, product):
+##    link = product
+##    page = ProductPage(browser, link)
+##    page.open()
+##    page.add_to_basket()
+##    page.is_disappeared_success_message()
+
+# 4.3.8
+def test_guest_should_see_login_link_on_product_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
-    page.add_to_basket()
+    page.should_be_login_link()
 
-
-@pytest.mark.parametrize("product", links)
-def test_should_be_message_product_is_added_to_basket(browser, product):
-    #link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-    link = product
+def test_guest_can_go_to_login_page_from_product_page (browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
     page.open()
-    page.add_to_basket()
-    page.check_product_name_in_message()
-
-
-@pytest.mark.parametrize("product", links)
-def test_should_be_message_with_basket_price(browser, product):
-    #link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/?promo=newYear"
-    link = product
-    page = ProductPage(browser, link)
-    page.open()
-    page.add_to_basket()
-    page.check_total_price_in_message()
-
-
-# 4.3.6
-@pytest.mark.parametrize("product", links)
-def test_guest_cant_see_success_message_after_adding_product_to_basket(browser, product):
-    link = product
-    page = ProductPage(browser, link)
-    page.open()
-    page.add_to_basket()
-    page.is_not_present_success_message()
-
-
-@pytest.mark.parametrize("product", links)
-def test_guest_cant_see_success_message(browser, product):
-    link = product
-    page = ProductPage(browser, link)
-    page.open()
-    page.is_not_present_success_message()
-
-
-@pytest.mark.parametrize("product", links)
-def test_message_disappeared_after_adding_product_to_basket(browser, product):
-    link = product
-    page = ProductPage(browser, link)
-    page.open()
-    page.add_to_basket()
-    page.is_disappeared_success_message()
+    page.go_to_login_page()
 
 
 
